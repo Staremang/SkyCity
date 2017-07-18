@@ -13,6 +13,16 @@ body {
 	position: relative;
 	font-weight: 500;
 }
+.wrapper {
+    width: 100%;
+    flex: 1 0 auto;
+	max-width: 1920px;
+	margin: auto;
+	left: 0;
+	right: 0;
+	position: relative;
+	padding-bottom: 68-22px;
+}
 .header {
 	background: #1a1a1a;
 	height: 85px;
@@ -88,16 +98,6 @@ body {
 		display: block;
 	}
 }
-.wrapper {
-    width: 100%;
-    flex: 1 0 auto;
-	max-width: 1920px;
-	margin: auto;
-	left: 0;
-	right: 0;
-	position: relative;
-	padding-bottom: 68-22px;
-}
 .popup {
 	position: fixed;
 	z-index: 100;
@@ -114,7 +114,8 @@ body {
 	}
 	&__content {
 		padding: 10px 50px;
-		max-height: 693px;
+		height: 693px;
+		max-height: calc(~"100vh - 239px");
 		overflow: scroll;
 	}
 	&__header {
@@ -127,7 +128,7 @@ body {
 		height: 39px;
 		background: #a4a4a4;
 		border: 0;
-		
+		cursor: pointer;
 		padding: 4px 0 0;
 	}
 }
@@ -206,22 +207,28 @@ body {
 	}
 }
 .home-rules-btn {
+	font-family: 'Helios', sans-serif;
+	font-weight: bold;
+	line-height: 20px;
+	text-transform: uppercase;
+	color: white;
+	
+	display: block;
+	position: absolute;
+	left: 0;
+	right: 0;
+	bottom: 96px;
+	width: 376px;
+	height: 81px;
+	
 	padding: 0;
+	margin: auto;
+	
 	border: 4px solid rgba(0, 0, 0, 0.3);
 	border-radius: 6px;
 	background: rgba(0, 0, 0, 0.1);
 	box-shadow: inset 0px 0px 28px 0px rgba(0, 0, 0, 0.2);
-	width: 376px;
-	height: 81px;
 	cursor: pointer;
-	color: white;
-	text-transform: uppercase;
-	position: absolute;
-	bottom: 96px;
-	display: block;
-	left: 0;
-	right: 0;
-	margin: auto;
 }
 .home-btn {
 	display: block;
@@ -293,18 +300,7 @@ body {
 	background: #e1e1e1;
 	border-radius: 11px;
 }
-.section-row {
-	display: flex;
-	flex-wrap: wrap;
-	
-	margin-left: -23px;
-	margin-right: -23px;
-}
-.section-col {
-	min-width: 50%;
-	flex: 0 0 50%;
-	padding: 0 23px;
-}
+
 .gallery-item {
 	border: 2px solid #a7a7a7;
 	border-radius: 10px;
@@ -351,6 +347,9 @@ body {
 }
 .adv-list {
 	padding: 0 22px;
+	margin: 0;
+	list-style: none;
+	counter-reset: li; 
 	&__item {
 		font-size: 18px;
 		font-weight: 500;
@@ -358,8 +357,11 @@ body {
 		margin-bottom: 22px;
 		display: inline-block;
 		min-width: 344px;
+		
 		&:before {
-			content: attr(data-list);
+			counter-increment: li; 
+			content: counters(li,"."); 
+			
 			border-radius: 50%;
 			width: 38px;
 			height: 38px;
@@ -404,6 +406,7 @@ body {
 	
 	background-image: linear-gradient(to top, #c4c4c4 0%, #dedede 100%);
 	box-shadow: inset 0px -6px 0px 0px #8f8f8f;
+//	background: url(/img/rm/10.png);
 	&_blue {
 		background-image: linear-gradient(to top, #47637e 0%, #547eb2 100%);
 		box-shadow: inset 0px -6px 0px 0px #374a60;
@@ -430,7 +433,7 @@ body {
 		font-size: 35px;
 		text-transform: uppercase;
 		font-weight: 900;
-		margin-top: 10px;
+		margin-top: 12px;
 		&_min {
 			font-size: 28px;
 			margin-top: 15px;
@@ -439,5 +442,6 @@ body {
 	&__name {
 		font-size: 16px;
 		letter-spacing: 1.6px;
+		margin-top: 2px;
 	}
 }
