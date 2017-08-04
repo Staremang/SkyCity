@@ -68,18 +68,34 @@ body {
 	background: #1a1a1a;
 	position: relative;
 	text-align: center;
-	height: 62px;
+//	height: 62px;
 	color: white;
 	font-weight: 500;
 	font-size: 14px;
 	&__copyright {
 		text-transform: uppercase;
 		letter-spacing: 2px;
-		line-height: 62px;
+//		line-height: 62px;
 	}
 	&__addr {
 		letter-spacing: 0.5px;
-		line-height: 62px;
+//		line-height: 62px;
+	}
+	&__content {
+		line-height: 1.5;
+		padding: 10px 20px;
+	}
+	&__btn {
+		color: white;
+		cursor: pointer;
+		background: none;
+		border-radius: 0;
+		padding: 0;
+		border: 0;
+		line-height: 1.5;
+		&:hover {
+			text-decoration: underline;
+		}
 	}
 }
 .dev {
@@ -180,11 +196,15 @@ body {
 	@media (max-width: 767px) {
 		height: auto;
 		position: relative;
+		padding: 0 20px;
+//		.footer__copyright, .footer__addr {
+//			line-height: 1.5px;
+//		}
 		.dev {
 			position: relative;
 //			left: 20px;
 //			right: 20px;
-			margin: 0 20px;
+			margin: 0;
 			padding:  10px 0;
 			border-top: 1px solid white;
 			display: block;
@@ -229,7 +249,10 @@ body {
 	@media (min-height: 900px) {
 		padding-top: 230px;
 	}
-	
+	@media (max-width: 767px) {
+		padding-top: 230px;
+		position: relative;
+	}
 	
 	&__overlay {
 		position: absolute;
